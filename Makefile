@@ -1,5 +1,5 @@
 # Program6: Makefile
-# Programmed by: Nicholas Steele
+# Programmed by: Nicholas Steele (nss150130)
 # CS3377.501
 
 #

@@ -44,10 +44,11 @@ int main()
   WINDOW	*window;
   CDKSCREEN	*cdkscreen;
   CDKMATRIX     *myMatrix;          
-  const char 		*rowTitles[] = {"a", "a", "b", "c", "d", "e"};
-  const char 		*columnTitles[] = {"a", "a", "b", "c", "d", "e"};
+  const char 	*rowTitles[] = {"a", "a", "b", "c", "d", "e"};
+  const char 	*columnTitles[] = {"a", "a", "b", "c", "d", "e"};
   int		boxWidths[] = {BOX_WIDTH, BOX_WIDTH, BOX_WIDTH, BOX_WIDTH, BOX_WIDTH, BOX_WIDTH};
   int		boxTypes[] = {vMIXED, vMIXED, vMIXED, vMIXED,  vMIXED,  vMIXED};
+  
   window = initscr();
   cdkscreen = initCDKScreen(window);
   initCDKColor();
@@ -102,7 +103,7 @@ int main()
 
 	   //save the string values in the file to the string buffers in the record class
 	   //print the string to the correct matrix cell
-	   ss4 << "string: " << myRecord->stringBuffer << endl;
+	   ss4 << myRecord->stringBuffer << endl;
 	   string s = ss4.str();
 	   setCDKMatrixCell(myMatrix, row, col+1, s.c_str());
 	    
@@ -118,15 +119,16 @@ int main()
 	//close the file
  	binInfile.close();
  }
+ //print error if the file cannot be found
  else 
  	cout<< "ERROR: cannot find binary file" << endl;
 
-  //create the matrix and exit when the user hits a key
-  drawCDKMatrix(myMatrix, true);    
-  unsigned char x;
-  cin >> x;
+ //create the matrix and exit when the user hits a key
+ drawCDKMatrix(myMatrix, true);    
+ unsigned char x;
+ cin >> x;
 
-  // Cleanup screen
-  endCDK();
-  return 0;
+ // Cleanup screen
+ endCDK();
+ return 0;
 }
